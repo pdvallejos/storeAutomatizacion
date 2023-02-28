@@ -1,5 +1,5 @@
 !/.gitignore
-/.gradle/
+**/.gradle/
 .classpath
 .scannerwork
 .project
@@ -9,7 +9,7 @@ buildSrc/build/
 lib/
 build/
 /out/
-.idea/
+**/.idea/
 debug.log
 /src/test/resources/drivers/
 

@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum Diccionario {
 
     URL_BASE  ("https://www.demoblaze.com/"),
-    ACTOR_NAME ("Usuario"),
+    ACTOR_NAME ("Fabricio"),
     RUTA_DRIVERS ("src/test/resources/drivers");
+
     private final String valor;
 }
