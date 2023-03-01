@@ -3,9 +3,14 @@ package co.com.store.definitions;
 import co.com.store.tasks.AgregarProducto;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 
+import static co.com.store.enums.Diccionario.VARIBLE_NOMBRE_PRODUCTO;
+import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
+import static co.com.store.userinterfaces.CarroComprasInterface.LBL_NOMBRE_PRODUCTO;
+import static co.com.store.utils.Utilidades.obtenerTextoElemento;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class AgregarProductoStepDefinition {
@@ -20,6 +25,10 @@ public class AgregarProductoStepDefinition {
         actor.attemptsTo(
                 irCarritoCompras()
         );
+
+        actor.should(seeThat(
+                validarTextos(obtenerTextoElemento(LBL_NOMBRE_PRODUCTO,actor),Serenity.sessionVariableCalled(VARIBLE_NOMBRE_PRODUCTO))
+        ));
 
     }
 }
