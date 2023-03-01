@@ -13,4 +13,8 @@ public class ProductosInterface {
             .the("Botón para añadir producto al carrito")
             .located(By.cssSelector("a[class='btn btn-success btn-lg']"));
 
+    public static final Target LBL_HOME=Target
+            .the("Titulo para acceder al home de la tienda")
+            .located(By.xpath("//a[contains(text(),'Home')]"));
+
 }

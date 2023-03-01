@@ -18,8 +18,6 @@ public class AgregarProducto implements Task {
                 Click.on(BTN_ADD_TO_CART)
         );
         esperar(10).until(ExpectedConditions.alertIsPresent()).accept();
-
-
     }
 
     public static AgregarProducto enCarritoCompras(){

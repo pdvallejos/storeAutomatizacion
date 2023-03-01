@@ -1,6 +1,7 @@
 package co.com.store.utils;
 
 import com.github.javafaker.Faker;
+import io.cucumber.java.sl.In;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.SerenityWebdriverManager;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import static co.com.store.userinterfaces.CarroComprasInterface.LBL_NOMBRE_PRODUCTO;
 
 public class Utilidades {
 
@@ -29,7 +32,21 @@ public class Utilidades {
     }
 
     public static String obtenerTextoElemento(Target target, Actor actor){
+        System.out.println(target.resolveFor(actor).getText());
         return target.resolveFor(actor).getText();
+    }
+
+    public static String obtenerTamanoTargetRepetido(Target target,Actor actor){
+        return Integer.toString(target.resolveAllFor(actor).size());
+    }
+
+    public static String sumarPrecios(Target target,Actor actor){
+        Integer precioTotal=0;
+        for(int x=0;x<target.resolveAllFor(actor).size();x++){
+            precioTotal= Integer.parseInt(target.resolveAllFor(actor).get(x).getText())+precioTotal;
+        }
+        System.out.println(precioTotal);
+        return Integer.toString(precioTotal);
     }
 
     public static WebDriverWait esperar(int tiempo){

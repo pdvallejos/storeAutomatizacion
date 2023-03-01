@@ -17,4 +17,17 @@ public class CarroComprasInterface {
             .the("Botón para eliminar producto carrito de compras")
             .located(By.xpath("//a[contains(text(),'Delete')]"));
 
+    public static final Target LBL_NOMBRE_PRODUCTO=Target
+            .the("Nombre del producto agregado en el carrito")
+            .located(By.xpath("//tr[@class='success']/td[2]"));
+
+    public static final Target LBL_PRECIO_PRODUCTO=Target
+            .the("Nombre del producto agregado en el carrito")
+            .located(By.xpath("//tr[@class='success']/td[3]"));
+
+    public static final Target LBL_PRECIO_TOTAL=Target
+            .the("Precio total del carrito")
+            .located(By.id("totalp"));
+
+
 }
