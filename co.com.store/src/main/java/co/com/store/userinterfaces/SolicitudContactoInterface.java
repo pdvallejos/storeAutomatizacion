@@ -3,7 +3,7 @@ package co.com.store.userinterfaces;
 import net.serenitybdd.screenplay.targets.Target;
 import static org.openqa.selenium.By.id;
 import static org.openqa.selenium.By.cssSelector;
-public class SolicitudContacto {
+public class SolicitudContactoInterface {
 
     public static final Target LNK_CONTACTANOS = Target
             .the("Link contactanos")
@@ -23,6 +23,6 @@ public class SolicitudContacto {
 
     public static final Target BTN_ENVIAR_MENSAJE = Target
             .the("Boton Enviar Mensaje")
-            .located(cssSelector("exampleModal :nth-child(1) .btn-primary"));
+            .located(cssSelector("#exampleModal :nth-child(1) .btn-primary"));
 
 }

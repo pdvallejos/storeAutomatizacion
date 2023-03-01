@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.SerenityWebdriverManager;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -28,6 +27,7 @@ public class Utilidades {
         listaCliente.add(texto);
         return listaCliente;
     }
+
     public static String obtenerTextoElemento(Target target, Actor actor){
         return target.resolveFor(actor).getText();
     }
@@ -36,3 +36,5 @@ public class Utilidades {
         return new WebDriverWait(SerenityWebdriverManager.inThisTestThread().getCurrentDriver(), Duration.ofSeconds(tiempo));
     }
 }
+
+

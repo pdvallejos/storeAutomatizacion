@@ -13,13 +13,14 @@ public class AgregarProductoStepDefinition {
     @Cuando("el {actor} agregue un producto al carrito de compras")
     public void agregarProductoCarritoCompras(Actor actor) {
         actor.attemptsTo(AgregarProducto.enCarritoCompras());
+        actor.attemptsTo(
+                irCarritoCompras()
+        );
 
     }
     @Entonces("el {actor} podrá observar que se agrego correctamente al carrito de compras")
     public void observarProductoAgregadoCarritoCompras(Actor actor) {
-        actor.attemptsTo(
-                irCarritoCompras()
-        );
+
 
     }
 }
