@@ -24,7 +24,10 @@ public class Utilidades {
         listaCliente.add(texto);
         return listaCliente;
     }
+
     public static String obtenerTextoElemento(Target target, Actor actor){
         return target.resolveFor(actor).getText();
     }
 }
+
+
