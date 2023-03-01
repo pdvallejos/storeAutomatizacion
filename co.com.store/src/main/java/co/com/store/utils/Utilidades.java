@@ -11,6 +11,8 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import static co.com.store.userinterfaces.CarroComprasInterface.LBL_NOMBRE_PRODUCTO;
+
 public class Utilidades {
 
     public static ArrayList<String> generarClientesAleatorios(){
@@ -30,6 +32,10 @@ public class Utilidades {
     }
     public static String obtenerTextoElemento(Target target, Actor actor){
         return target.resolveFor(actor).getText();
+    }
+
+    public static String obtenerTamanoTargetRepetido(Target target,Actor actor){
+        return Integer.toString(target.resolveAllFor(actor).size());
     }
 
     public static WebDriverWait esperar(int tiempo){
