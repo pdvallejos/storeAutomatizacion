@@ -26,7 +26,7 @@ public class AgregarProductoStepDefinition {
     @Entonces("el {actor} podrá observar que se agrego correctamente al carrito de compras")
     public void observarProductoAgregadoCarritoCompras(Actor actor) {
         actor.should(seeThat(
-                validarTextos(obtenerTextoElemento(LBL_NOMBRE_PRODUCTO,actor),Serenity.sessionVariableCalled(VARIBLE_NOMBRE_PRODUCTO.getValor()))
+                validarTextos(obtenerTextoElemento(LBL_NOMBRE_PRODUCTO,actor),Serenity.sessionVariableCalled(VARIBLE_NOMBRE_PRODUCTO))
         ));
     }
 

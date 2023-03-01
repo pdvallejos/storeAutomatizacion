@@ -32,7 +32,6 @@ public class Utilidades {
     }
 
     public static String obtenerTextoElemento(Target target, Actor actor){
-        System.out.println(target.resolveFor(actor).getText());
         return target.resolveFor(actor).getText();
     }
 
@@ -45,7 +44,6 @@ public class Utilidades {
         for(int x=0;x<target.resolveAllFor(actor).size();x++){
             precioTotal= Integer.parseInt(target.resolveAllFor(actor).get(x).getText())+precioTotal;
         }
-        System.out.println(precioTotal);
         return Integer.toString(precioTotal);
     }
 
