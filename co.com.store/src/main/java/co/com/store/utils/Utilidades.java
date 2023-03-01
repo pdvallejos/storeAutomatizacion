@@ -20,6 +20,8 @@ public class Utilidades {
         listaCliente.add(correo);
         String contrasena = usFaker.bothify("#?#?#?#????"+":::");
         listaCliente.add(contrasena);
+        String texto = usFaker.chuckNorris().fact();
+        listaCliente.add(texto);
         return listaCliente;
     }
     public static String obtenerTextoElemento(Target target, Actor actor){

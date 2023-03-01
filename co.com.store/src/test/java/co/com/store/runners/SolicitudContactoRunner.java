@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/borrar.feature"},
+        features = {"src/test/resources/features/solicitud_contacto.feature"},
         glue = {"co.com.store.definitions"}
 )
-public class InicioSesionRunner {
+public class SolicitudContactoRunner {
 }
