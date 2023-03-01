@@ -8,7 +8,7 @@ Característica: Agregar productos al carrito de compras
   Escenario: Agregar producto de forma exitosa
     Dado que el usuario se encuentra en la tienda
     Cuando el usuario agregue un producto al carrito de compras
-    Entonces podrá observar que se agrego correctamente al carrito de compras
+    Entonces el usuario podrá observar que se agrego correctamente al carrito de compras
 
 
   Escenario: Agregar dos productos iguales de forma exitosa
