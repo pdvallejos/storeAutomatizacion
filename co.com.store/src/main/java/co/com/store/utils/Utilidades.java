@@ -3,7 +3,10 @@ package co.com.store.utils;
 import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
+import net.thucydides.core.webdriver.SerenityWebdriverManager;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -27,6 +30,10 @@ public class Utilidades {
 
     public static String obtenerTextoElemento(Target target, Actor actor){
         return target.resolveFor(actor).getText();
+    }
+
+    public static WebDriverWait esperar(int tiempo){
+        return new WebDriverWait(SerenityWebdriverManager.inThisTestThread().getCurrentDriver(), Duration.ofSeconds(tiempo));
     }
 }
 
