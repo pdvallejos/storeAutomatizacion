@@ -13,6 +13,4 @@ public class ProductosInterface {
             .the("Botón para añadir producto al carrito")
             .located(By.cssSelector("a[class='btn btn-success btn-lg']"));
 
-
-
 }
