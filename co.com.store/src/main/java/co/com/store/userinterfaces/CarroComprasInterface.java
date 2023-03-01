@@ -7,7 +7,7 @@ public class CarroComprasInterface {
 
     public static final Target LBL_CARRITO_COMPRAS=Target
             .the("Opción para ir al carrito de compras")
-            .located(By.cssSelector("a[onclick='showcart()']"));
+            .located(By.id("cartur"));
 
     public static final Target BTN_REALIZAR_COMPRA=Target
             .the("Botón para realizar compra")
