@@ -1,16 +1,18 @@
 package co.com.store.utils;
 
-import co.com.store.models.FormularioCompraModel;
 import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
+import net.thucydides.core.webdriver.SerenityWebdriverManager;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class Utilidades {
 
-    FormularioCompraModel formularioCompraModel;
+
 
     public static ArrayList<String> generarClientesAleatorios(){
         ArrayList<String> listaCliente = new ArrayList<>();
@@ -25,26 +27,26 @@ public class Utilidades {
         listaCliente.add(contrasena);
         String texto = usFaker.chuckNorris().fact();
         listaCliente.add(texto);
+        String pais = usFaker.address().country();
+        listaCliente.add(pais);
+        String ciudad = usFaker.address().city();
+        listaCliente.add(ciudad);
+        String tarjetaCredito = usFaker.finance().creditCard();
+        listaCliente.add(tarjetaCredito);
+        String mes = usFaker.options().option("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto");
+        listaCliente.add(mes);
+        String year = String.valueOf(usFaker.number().numberBetween(2000, 2023));
+        listaCliente.add(year);
         return listaCliente;
     }
+
     public static String obtenerTextoElemento(Target target, Actor actor){
         return target.resolveFor(actor).getText();
     }
 
 
-    public FormularioCompraModel DatosEnvioCompra(){
-        Faker faker = new Faker();
-
-        formularioCompraModel = new FormularioCompraModel();
-
-        formularioCompraModel.setNombre(faker.name().fullName());
-        formularioCompraModel.setPais(faker.address().country());
-        formularioCompraModel.setCiudad(faker.address().city());
-        formularioCompraModel.setTargetaCredito(faker.finance().creditCard());
-        formularioCompraModel.setMes("febrero");
-        formularioCompraModel.setYear("1999");
-
-        return formularioCompraModel;
-
+    public static WebDriverWait esperar(int tiempo){
+        return new WebDriverWait(SerenityWebdriverManager.inThisTestThread().getCurrentDriver(), Duration.ofSeconds(tiempo));
     }
+
 }
