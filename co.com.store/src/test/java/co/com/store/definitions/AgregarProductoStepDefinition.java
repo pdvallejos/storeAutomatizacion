@@ -49,4 +49,9 @@ public class AgregarProductoStepDefinition {
         ));
 
     }
+    @Entonces("el {actor} podrá observar que se agrego correctamente al carrito de compras")
+    public void observarProductoAgregadoCarritoCompras(Actor actor) {
+
+
+    }
 }
