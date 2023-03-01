@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Open;
 
 import static co.com.store.enums.Diccionario.URL_BASE;
 
-public class InicioSesionDefinition extends Setup {
+public class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 InicioSesionDefinition extends Setup {
     @Dado("que el usuario se encuentra en la tienda")
     public void queUsuarioEntrarTienda() {
         setupGeneral();
