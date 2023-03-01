@@ -10,9 +10,8 @@ import net.serenitybdd.screenplay.Actor;
 import static co.com.store.enums.Diccionario.VARIBLE_NOMBRE_PRODUCTO;
 import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
-import static co.com.store.userinterfaces.CarroComprasInterface.LBL_NOMBRE_PRODUCTO;
-import static co.com.store.utils.Utilidades.obtenerTamanoTargetRepetido;
-import static co.com.store.utils.Utilidades.obtenerTextoElemento;
+import static co.com.store.userinterfaces.CarroComprasInterface.*;
+import static co.com.store.utils.Utilidades.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class AgregarProductoStepDefinition {
@@ -44,5 +43,10 @@ public class AgregarProductoStepDefinition {
         actor.should(seeThat(
                 validarTextos(obtenerTamanoTargetRepetido(LBL_NOMBRE_PRODUCTO,actor),numeroProductos)
         ));
+
+        actor.should(seeThat(
+                validarTextos(sumarPrecios(LBL_PRECIO_PRODUCTO,actor),obtenerTextoElemento(LBL_PRECIO_TOTAL,actor))
+        ));
+
     }
 }
