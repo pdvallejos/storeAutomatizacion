@@ -1,10 +1,25 @@
 # language: es
 
-Característica: una caracteristica
+Característica: inicio de sesion
+    Como usuario estandar de la tienda
+    Necesito loguearme en el sitio web de la tienda
+    Para ingresar a la tienda con mi usuario
 
-    Antecedentes: este es el antecedente
+    Antecedentes:
         Dado que el usuario se encuentra en la tienda
 
-    Escenario: todavia no esta hecho
-        Cuando borrar
-        Entonces borrar
+    Escenario: inicio de sesion exitoso
+        Cuando el usuario suministre las credenciales correctamente
+        Entonces el usuario podrá observar que ingreso correctamente
+
+    Escenario: Inicio de sesión fallido
+        Cuando el usuario suministre las credenciales de ingreso incorrectamente
+        Entonces el usuario podrá observar que no inicio sesión correctamente
+
+    Escenario: Inicio de sesión fallido por contraseña
+        Cuando el usuario suministre las credenciales de ingreso sin la contraseña
+        Entonces el usuario podrá observar que no inicio sesión correctamente
+
+    Escenario: Inicio de sesión fallido por username
+        Cuando el usuario suministre las credenciales de ingreso con username no registrado
+        Entonces el usuario podrá observar que no inicio sesión correctamente
