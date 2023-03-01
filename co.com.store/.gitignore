@@ -1,6 +1,7 @@
 !/.gitignore
 /.gradle/
 .classpath
+.idea
 .scannerwork
 .project
 .settings/
