@@ -15,9 +15,6 @@ public enum Diccionario {
     MENSAJE_CONTACTENOS_EXITOSO("Thanks for the message!!"),
     MENSAJE_CONTACTENOS_FALLIDO("Please complete all the information");
 
-
-
-
     private final String valor;
 
 }
