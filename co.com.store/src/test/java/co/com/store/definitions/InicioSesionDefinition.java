@@ -1,22 +1,32 @@
 package co.com.store.definitions;
 
+import co.com.store.models.FrontDTO;
+import co.com.store.questions.ObtenerNombreUsuario;
+import co.com.store.tasks.VerificarUsuario;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.Actor;
 import static co.com.store.enums.Diccionario.*;
+import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IniciarSesion.iniciarSesion;
+import static co.com.store.utils.Utilidades.obtenerTextoAlerta;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class InicioSesionDefinition {
     @Cuando("el {actor} suministre las credenciales correctamente")
     public void UsuarioSuministreCredencialesCorrectamente(Actor actor) {
         actor.attemptsTo(
                 iniciarSesion().conUsuario(USUARIO.getValor())
-                               .conContraseña(CONTRASEÑA.getValor())
+                               .conContraseña(PASSWORD.getValor())
         );
     }
 
     @Entonces("el {actor} podrá observar que ingreso correctamente")
     public void UsuarioPodráObservarIngresoCorrectamente(Actor actor) {
+        FrontDTO informacionUsuario = new ObtenerNombreUsuario().answeredBy(actor);
+        actor.attemptsTo(
+                VerificarUsuario.entre(informacionUsuario, USUARIO.getValor())
+        );
 
     }
 
@@ -24,13 +34,15 @@ public class InicioSesionDefinition {
     public void UsuarioSuministreCredencialesIngresoIncorrectamente(Actor actor) {
         actor.attemptsTo(
                 iniciarSesion().conUsuario(ACTOR_NAME.getValor())
-                        .conContraseña(CONTRASEÑA.getValor())
+                        .conContraseña(PASSWORD.getValor())
         );
     }
 
-    @Entonces("el {actor} podrá observar que no inicio sesión correctamente")
-    public void UsuarioPodráObservarQueNoInicioSesiónCorrectamente(Actor actor) {
-
+    @Entonces("el {actor} podrá observar la alerta que el usuario no existe")
+    public void UsuarioPodraObservarAlertaUsuarioNoExiste(Actor actor) {
+        actor.should(
+                seeThat(validarTextos(obtenerTextoAlerta(), "User does not exist."))
+        );
     }
 
     @Cuando("el {actor} suministre las credenciales de ingreso sin la contraseña")
@@ -40,7 +52,25 @@ public class InicioSesionDefinition {
         );
     }
 
-    @Cuando("el {actor} suministre las credenciales de ingreso con username no registrado")
-    public void UsuarioSuministreCredencialesIngresoConUsernameNoRegistrado(Actor actor) {
+    @Entonces("el {actor} podrá observar la alerta de que debe completar todos los campos")
+    public void UsuarioPodráObservarAlertaDebeCompletarTodosLosCampos(Actor actor) {
+        actor.should(
+                seeThat(validarTextos(obtenerTextoAlerta(), "Please fill out Username and Password."))
+        );
+    }
+
+    @Cuando("el {actor} suministre las credenciales de ingreso con contraseña no valida")
+    public void UsuarioSuministreCredencialesIngresoConContrasenaNoValida(Actor actor) {
+        actor.attemptsTo(
+                iniciarSesion().conUsuario(USUARIO.getValor())
+                        .conContraseña(PASSWORD_INCORRECTO.getValor())
+        );
+    }
+
+    @Entonces("el {actor} podrá observar la alerta de que la contraseña es invalida")
+    public void UsuarioPodráObservarAlertaContrasenaInvalida(Actor actor) {
+        actor.should(
+                seeThat(validarTextos(obtenerTextoAlerta(), "Wrong password."))
+        );
     }
 }

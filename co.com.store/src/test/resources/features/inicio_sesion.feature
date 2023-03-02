@@ -14,12 +14,12 @@ Característica: inicio de sesion
 
     Escenario: Inicio de sesión fallido
         Cuando el usuario suministre las credenciales de ingreso incorrectamente
-        Entonces el usuario podrá observar que no inicio sesión correctamente
+        Entonces el usuario podrá observar la alerta que el usuario no existe
 
     Escenario: Inicio de sesión fallido por contraseña
         Cuando el usuario suministre las credenciales de ingreso sin la contraseña
-        Entonces el usuario podrá observar que no inicio sesión correctamente
+        Entonces el usuario podrá observar la alerta de que debe completar todos los campos
 
     Escenario: Inicio de sesión fallido por username
-        Cuando el usuario suministre las credenciales de ingreso con username no registrado
-        Entonces el usuario podrá observar que no inicio sesión correctamente
+        Cuando el usuario suministre las credenciales de ingreso con contraseña no valida
+        Entonces el usuario podrá observar la alerta de que la contraseña es invalida
