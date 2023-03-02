@@ -11,10 +11,8 @@ public enum Diccionario {
     ACTOR_NAME ("Fabricio"),
     RUTA_DRIVERS ("src/test/resources/drivers"),
     MENSAJE_REGISTRO_EXITOSO("Sign up successful."),
-    CAMPO_REGISTRO_FALTANTE ("Please fill out Username and Password.");
+    CAMPO_REGISTRO_FALTANTE ("Please fill out Username and Password."),
     VARIBLE_NOMBRE_PRODUCTO("Nombre producto"),
-    RUTA_DRIVERS ("src/test/resources/drivers"),
-
 
     VALIDACION_COMPRA_EXITOSA("Thank you for your purchase!"),
 

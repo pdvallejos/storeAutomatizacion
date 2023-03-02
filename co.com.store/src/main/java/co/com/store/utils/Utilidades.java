@@ -92,7 +92,7 @@ public class Utilidades {
     }
 
 
-}
+
 
     /**
      * Funcion que se encarga de obtener el texto de la alerta de validacion
@@ -100,4 +100,4 @@ public class Utilidades {
 
     public static String obtenerTextoAlerta(){
         return esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
-    }
+    }}
