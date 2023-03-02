@@ -19,7 +19,5 @@ public enum Diccionario {
     PRECIO_TOTAL("Precio total antes"),
     MENSAJE_CONTACTENOS_FALLIDO("Please complete all the information");
 
-    public String getValor() {
-        return valor;
-    }
+    private final String valor;
 }
