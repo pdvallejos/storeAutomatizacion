@@ -1,19 +1,23 @@
 package co.com.store.definitions;
 
 import co.com.store.tasks.AgregarProducto;
+
 import co.com.store.utils.Utilidades;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 
 import java.util.ArrayList;
 
-import static co.com.store.enums.Diccionario.VALIDACION_COMPRA_EXITOSA;
-import static co.com.store.questions.ValidarCompra.validarCompra;
-import static co.com.store.tasks.DiligenciarFormularioCompra.diligenciarFormularioCompra;
+import static co.com.store.enums.Diccionario.*;
+import static co.com.store.questions.ValidarTexto.validarTextos;
+import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
+import static co.com.store.tasks.RealizarCompra.realizarCompra;
+import static co.com.store.userinterfaces.ValidarCompraInterface.TXT_VALIDACION_COMPRA_EXITOSA;
+import static co.com.store.utils.Utilidades.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static org.hamcrest.Matchers.equalTo;
 
 
 public class ComprarProductoDefinition {
@@ -24,7 +28,8 @@ public class ComprarProductoDefinition {
     @Cuando("el {actor} ingresa productos al carrito de compras")
     public void ingresaProductosAlCarritoDeCompras(Actor actor) {
         actor.attemptsTo(
-            AgregarProducto.enCarritoCompras()
+                AgregarProducto.enCarritoCompras(),
+                irCarritoCompras()
         );
 
     }
@@ -32,40 +37,44 @@ public class ComprarProductoDefinition {
     @Y("el {actor} realiza el proceso de compra")
     public void realizaElProcesoLaCompra(Actor actor) {
         actor.attemptsTo(
-                diligenciarFormularioCompra().conNombre(datosCompra.get(0))
-                        .conPais(datosCompra.get(5))
-                        .conCiudad(datosCompra.get(6))
-                        .conTargetaCredito(datosCompra.get(7))
-                        .conMes(datosCompra.get(8))
-                        .conYear(datosCompra.get(9))
+                realizarCompra(),
+                DiligenciarDatosCliente(datosCompra.get(1), datosCompra.get(7))
         );
     }
 
     @Entonces("el {actor} visualiza un mensaje de compra exitosa")
     public void seVisualizaUnMensajeDeCompraExitosa(Actor actor) {
         actor.should(
-          seeThat("el mensaje de compra es correcto",validarCompra(),equalTo(VALIDACION_COMPRA_EXITOSA.getValor()))
+
+                seeThat(validarTextos(obtenerTextoElemento(TXT_VALIDACION_COMPRA_EXITOSA, actor), VALIDACION_COMPRA_EXITOSA.getValor()))
         );
     }
 
     @Y("el {actor} realiza el proceso de compra sin completar el campo nombre")
     public void realizaElProcesoDeCompraSinCompletarElCampoNombre(Actor actor) {
+
         actor.attemptsTo(
-                diligenciarFormularioCompra().conNombre(datosCompra.get(0))
-                        .conPais(datosCompra.get(5))
-                        .conCiudad(datosCompra.get(6))
-                        .conTargetaCredito(datosCompra.get(7))
-                        .conMes(datosCompra.get(8))
-                        .conYear(datosCompra.get(9))
+                realizarCompra(),
+                DiligenciarDatosCliente(datosCompra.get(10), datosCompra.get(7))
         );
+        obtenerTextoAlerta();
     }
 
-    @Entonces("se visualiza una alerta de campo requerido")
-    public void seVisualizaUnaAlertaDeCampoRequerido() {
+    @Entonces("el {actor} visualiza una alerta de campo requerido")
+    public void seVisualizaUnaAlertaDeCampoRequerido(Actor actor) {
+        actor.should(
+                seeThat(validarTextos(Serenity.sessionVariableCalled(MENSAJE_VALIDACION_COMPRA), MENSAJE_NOMBRE_COMPRA_FALLIDA.getValor()))
+        );
+
+
     }
 
-    @Y("realiza el proceso de compra sin completar el campo tarjeta de credito")
-    public void realizaElProcesoDeCompraSinCompletarElCampoTarjetaDeCredito() {
+    @Y("el {actor} realiza el proceso de compra sin completar el campo tarjeta de credito")
+    public void realizaElProcesoDeCompraSinCompletarElCampoTarjetaDeCredito(Actor actor) {
+        actor.attemptsTo(
+                realizarCompra(),
+                DiligenciarDatosCliente(datosCompra.get(1), datosCompra.get(10))
+        );
     }
 
     @Cuando("el {actor} realiza el proceso de compra sin productos en el carrito")

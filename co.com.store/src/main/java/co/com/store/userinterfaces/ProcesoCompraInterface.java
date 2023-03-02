@@ -7,13 +7,6 @@ import static org.openqa.selenium.By.*;
 
 public class ProcesoCompraInterface  {
 
-    public static final Target LNK_CARRITO_COMPRAS = Target
-            .the("link carrito de compras")
-            .located(linkText("Cart"));
-
-    public static final Target BTN_REALIZAR_PEDIDO = Target
-            .the("link carrito de compras")
-            .located(cssSelector(" button.btn.btn-success"));
 
     public static final Target TXT_NOMBRE = Target
             .the("campo nombre")
@@ -42,12 +35,5 @@ public class ProcesoCompraInterface  {
     public static final Target BTN_COMPRA = Target
             .the("boton comprar")
             .located(cssSelector("body.modal-open:nth-child(2) div.modal.fade.show:nth-child(3) div.modal-dialog div.modal-content > div.modal-footer button.btn.btn-primary"));
-
-
-
-
-
-
-
 
 }

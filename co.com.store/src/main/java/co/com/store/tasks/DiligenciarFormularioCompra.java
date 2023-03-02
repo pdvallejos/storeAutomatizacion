@@ -1,15 +1,16 @@
 package co.com.store.tasks;
 
 
+import co.com.store.exceptions.ProcesoCompraException;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Clear;
+import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
+
+import static co.com.store.enums.Diccionario.VALIDACION_DILIGENCIAR_CAMPOS;
+import static co.com.store.interactions.LlernarCamposCompra.llernarCamposCompra;
 import static co.com.store.userinterfaces.ProcesoCompraInterface.*;
-import static co.com.store.utils.Utilidades.esperar;
 
 
 public class DiligenciarFormularioCompra implements Task {
@@ -60,35 +61,27 @@ public class DiligenciarFormularioCompra implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                Click.on(LNK_CARRITO_COMPRAS),
-                Click.on(BTN_REALIZAR_PEDIDO),
 
-                Clear.field(TXT_NOMBRE),
-                Enter.theValue(nombre).into(TXT_NOMBRE),
+        try {
+            actor.attemptsTo(
+                    llernarCamposCompra(TXT_NOMBRE, nombre),
+                    llernarCamposCompra(TXT_PAIS, pais),
+                    llernarCamposCompra(TXT_CIUDAD, ciudad),
+                    llernarCamposCompra(TXT_TARJETA_CREDITO, targetaCredito),
+                    llernarCamposCompra(TXT_MES, mes),
+                    llernarCamposCompra(TXT_YEAR, year),
+                    Click.on(BTN_COMPRA)
+            );
+        } catch (Exception exception) {
+            throw new ProcesoCompraException(VALIDACION_DILIGENCIAR_CAMPOS.getValor(), exception);
+        }
 
-                Clear.field(TXT_PAIS),
-                Enter.theValue(pais).into(TXT_PAIS),
 
-                Clear.field(TXT_CIUDAD),
-                Enter.theValue(ciudad).into(TXT_CIUDAD),
-
-                Clear.field(TXT_TARJETA_CREDITO),
-                Enter.theValue(targetaCredito).into(TXT_TARJETA_CREDITO),
-
-                Clear.field(TXT_MES),
-                Enter.theValue(mes).into(TXT_MES),
-
-                Clear.field(TXT_YEAR),
-                Enter.theValue(year).into(TXT_YEAR),
-
-                Click.on(BTN_COMPRA)
-        );
-        esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
     }
 
+
     public static DiligenciarFormularioCompra diligenciarFormularioCompra() {
-        return new DiligenciarFormularioCompra();
+        return Tasks.instrumented(DiligenciarFormularioCompra.class);
     }
 }
 

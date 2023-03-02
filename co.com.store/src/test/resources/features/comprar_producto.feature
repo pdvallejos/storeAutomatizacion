@@ -8,8 +8,8 @@ Característica: Realizar proceso de compra de productos
   Antecedentes:
     Dado que el usuario se encuentra en la tienda
 
-@section
-Escenario: Outline: Realizar compra exitosa
+  @section02
+  Escenario: Realizar compra exitosa
     Cuando el usuario ingresa productos al carrito de compras
     Y el usuario realiza el proceso de compra
     Entonces el usuario visualiza un mensaje de compra exitosa
@@ -17,12 +17,12 @@ Escenario: Outline: Realizar compra exitosa
   Escenario: 002- compra no exitosa por campo nombre
     Cuando el usuario ingresa productos al carrito de compras
     Y el usuario realiza el proceso de compra sin completar el campo nombre
-    Entonces se visualiza una alerta de campo requerido
-
+    Entonces el usuario visualiza una alerta de campo requerido
+  @section02
   Escenario: 003- compra no exitosa por campo tarjeta de credito
     Cuando el usuario ingresa productos al carrito de compras
-    Y realiza el proceso de compra sin completar el campo tarjeta de credito
-    Entonces se visualiza una alerta de campo requerido
+    Y el usuario realiza el proceso de compra sin completar el campo tarjeta de credito
+    Entonces el usuario visualiza una alerta de campo requerido
 
   Escenario: 004- compra sin productos en el carrito
     Cuando el usuario realiza el proceso de compra sin productos en el carrito
