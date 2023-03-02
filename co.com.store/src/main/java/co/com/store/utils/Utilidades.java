@@ -1,9 +1,12 @@
 package co.com.store.utils;
 
 import com.github.javafaker.Faker;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.SerenityWebdriverManager;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,4 +38,10 @@ public class Utilidades {
     public static WebDriverWait esperar(int tiempo){
         return new WebDriverWait(SerenityWebdriverManager.inThisTestThread().getCurrentDriver(), Duration.ofSeconds(tiempo));
     }
+
+    public static String obtenerTextoAlerta(){
+        return esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
+    }
+
+
 }
