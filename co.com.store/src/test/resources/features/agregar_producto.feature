@@ -5,13 +5,18 @@ Característica: Agregar productos al carrito de compras
   Necesito agregar productos al carrito de compras
   Para realizar la compra de los mismos
 
-  Escenario: Agregar producto de forma exitosa
+  Antecedentes:
     Dado que el usuario se encuentra en la tienda
+
+  Escenario: Agregar producto de forma exitosa
     Cuando el usuario agregue un producto al carrito de compras
     Entonces el usuario podrá observar que se agrego correctamente al carrito de compras
 
 
-  Escenario: Agregar dos productos iguales de forma exitosa
-    Dado que el usuario se encuentra en la tienda
-    Cuando agregue dos productos de la misma referencia al carrito de compras
-    Entonces podrá observar que se agregaron correctamente al carrito de compras
+  Esquema del escenario: Escenario: Agregar varios productos al carrito de compras
+    Cuando el usuario agregue "<numeroProductos>" productos al carrito de compras
+    Entonces el usuario podrá observar que se agregaron "<numeroProductos>" correctamente al carrito de compras
+
+    Ejemplos:
+    |numeroProductos|
+    |3              |
