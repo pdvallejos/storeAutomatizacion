@@ -1,18 +1,15 @@
 package co.com.store.tasks;
 
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import static co.com.store.enums.Diccionario.MENSAJE_CONTACTENOS;
+
 import static co.com.store.userinterfaces.SolicitudContactoInterface.BTN_ENVIAR_MENSAJE;
 import static co.com.store.userinterfaces.SolicitudContactoInterface.LNK_CONTACTANOS;
 import static co.com.store.userinterfaces.SolicitudContactoInterface.TXT_CORREO;
 import static co.com.store.userinterfaces.SolicitudContactoInterface.TXT_MENSAJE;
 import static co.com.store.userinterfaces.SolicitudContactoInterface.TXT_NOMBRE;
-import static co.com.store.utils.Utilidades.esperar;
 
 public class SolicitudContacto implements Task {
 
@@ -41,8 +38,6 @@ public class SolicitudContacto implements Task {
                 Enter.theValue(mensaje).into(TXT_MENSAJE),
                 Click.on(BTN_ENVIAR_MENSAJE)
         );
-        String mensajeAlerta = esperar(5).until(ExpectedConditions.alertIsPresent()).getText();
-        Serenity.setSessionVariable(MENSAJE_CONTACTENOS).to(mensajeAlerta);
     }
 
     public static SolicitudContacto solicitudContacto(){

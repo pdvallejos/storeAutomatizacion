@@ -44,6 +44,7 @@ public class Utilidades {
         listaCliente.add(year);
         String vacio = "";
         listaCliente.add(vacio);
+        listaCliente.add(nombre + "*112");
         return listaCliente;
     }
 
@@ -91,13 +92,21 @@ public class Utilidades {
         return new WebDriverWait(SerenityWebdriverManager.inThisTestThread().getCurrentDriver(), Duration.ofSeconds(tiempo));
     }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 39aadf30ed859b44d5113f45da7a7fc2e230c9fe
     /**
      * Funcion que se encarga de obtener el texto de la alerta de validacion
      */
 
     public static String obtenerTextoAlerta(){
         return esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
+<<<<<<< HEAD
     }}
+=======
+    }
+}
+>>>>>>> 39aadf30ed859b44d5113f45da7a7fc2e230c9fe
