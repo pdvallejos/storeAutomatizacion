@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import static co.com.store.tasks.DiligenciarFormularioCompra.diligenciarFormularioCompra;
-
 import static co.com.store.enums.Diccionario.PRECIO_BORRAR;
 import static co.com.store.enums.Diccionario.PRECIO_TOTAL;
 
@@ -92,6 +91,9 @@ public class Utilidades {
         return new WebDriverWait(SerenityWebdriverManager.inThisTestThread().getCurrentDriver(), Duration.ofSeconds(tiempo));
     }
 
+
+}
+
     /**
      * Funcion que se encarga de obtener el texto de la alerta de validacion
      */
@@ -99,7 +101,3 @@ public class Utilidades {
     public static String obtenerTextoAlerta(){
         return esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
     }
-
-}
-
-

@@ -18,11 +18,11 @@ public class LlenarCampos implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-                Clear.field(target).performAs(actor);
-                Enter.theValue(dato).into(target).performAs(actor);
+        Clear.field(target).performAs(actor);
+        Enter.theValue(dato).into(target).performAs(actor);
     }
 
-    public static LlenarCampos llernarCamposCompra(Target target, String dato){
+    public static LlenarCampos LlenarCampos(Target target, String dato){
         return new LlenarCampos(target,dato);
     }
 }
