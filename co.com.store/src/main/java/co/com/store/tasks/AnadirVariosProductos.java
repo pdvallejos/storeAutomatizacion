@@ -24,11 +24,8 @@ public class AnadirVariosProductos implements Task {
         int numeroProductosInt=Integer.parseInt(numeroProductos);
         for(int x=0;x<numeroProductosInt;x++){
             actor.attemptsTo(
-                    SeleccionarProductoAleatorio.enSeccionProductos(LBL_NOMBRE_PRODUCTO),
-                    Click.on(BTN_ADD_TO_CART)
-            );
-            esperar(10).until(ExpectedConditions.alertIsPresent()).accept();
-            actor.attemptsTo(Click.on(LBL_HOME));
+                    AgregarProducto.enCarritoCompras(),
+                    Click.on(LBL_HOME));
         }
     }
 

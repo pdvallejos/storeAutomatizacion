@@ -7,8 +7,8 @@
 
     Escenario: Remover producto de forma exitosa
       Dado que el usuario se encuentra en la tienda
-      Cuando elimine un producto que ha sido agregado al carrito de compras
-      Entonces podrá observar que se eliminó correctamente el producto del carrito de compras
+      Cuando el usuario elimine un producto que ha sido agregado al carrito de compras
+      Entonces el usuario podrá observar que se eliminó correctamente el producto del carrito de compras
 
 
     Escenario: Remover un producto repetido del carrito de compras
