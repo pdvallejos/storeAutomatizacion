@@ -22,7 +22,7 @@ public class LlenarCampos implements Interaction {
         Enter.theValue(dato).into(target).performAs(actor);
     }
 
-    public static LlenarCampos LlenarCampos(Target target, String dato){
+    public static LlenarCampos llenarCampos(Target target, String dato){
         return new LlenarCampos(target,dato);
     }
 }

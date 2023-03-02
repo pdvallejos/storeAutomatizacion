@@ -23,7 +23,7 @@ public class RegistrarUsuarioDefinition {
     public void elUsuarioSuministreLasCredencialesDeRegistroCorrectamente(Actor actor) throws InterruptedException {
         actor.attemptsTo(
                 irRegistro(),
-                registrarUsuario().conNombre(datosUsuario.get(0)).conContrasena(datosUsuario.get(3))
+                registrarUsuario().conNombre(datosUsuario.get(11)).conContrasena(datosUsuario.get(3))
 
         );
     }
@@ -55,7 +55,7 @@ public class RegistrarUsuarioDefinition {
     public void elUsuarioNoSuministreElCampoContraseñaEnElRegistro(Actor actor) {
         actor.attemptsTo(
                 irRegistro(),
-                registrarUsuario().conNombre(datosUsuario.get(0))
+                registrarUsuario().conNombre(datosUsuario.get(11))
         );
     }
 

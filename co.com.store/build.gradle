@@ -6,7 +6,6 @@ buildscript {
     }
     dependencies {
         classpath "net.serenity-bdd:serenity-gradle-plugin:2.2.12"
-        classpath "net.serenity-bdd:serenity-single-page-report:2.2.12"
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0"
     }
 }

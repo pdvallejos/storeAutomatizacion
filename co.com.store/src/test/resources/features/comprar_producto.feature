@@ -13,12 +13,12 @@ Característica: Realizar proceso de compra de productos
     Cuando el usuario ingresa productos al carrito de compras
     Y el usuario realiza el proceso de compra
     Entonces el usuario visualiza un mensaje de compra exitosa
-  @section02
+
   Escenario: 002- compra no exitosa por campo nombre
     Cuando el usuario ingresa productos al carrito de compras
     Y el usuario realiza el proceso de compra sin completar el campo nombre
     Entonces el usuario visualiza una alerta de campo requerido
-  @section02
+
   Escenario: 003- compra no exitosa por campo tarjeta de credito
     Cuando el usuario ingresa productos al carrito de compras
     Y el usuario realiza el proceso de compra sin completar el campo tarjeta de credito
