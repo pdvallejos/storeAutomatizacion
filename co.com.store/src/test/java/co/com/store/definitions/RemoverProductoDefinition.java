@@ -1,6 +1,8 @@
 package co.com.store.definitions;
 
 import co.com.store.questions.ValidarProducto;
+import co.com.store.tasks.AgregarProducto;
+import co.com.store.tasks.AnadirVariosProductos;
 import co.com.store.tasks.EliminarProducto;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
@@ -15,12 +17,12 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class RemoverProductoDefinition {
 
-    @Y("el {actor} elimine un producto")
-    public void eliminarProductoUnico(Actor actor) {
+    @Cuando("el {actor} elimine un producto que ha sido agregado al carrito de compras")
+    public void eliminarProducto(Actor actor) {
         actor.attemptsTo(
-                EliminarProducto.enCarritoCompras(),
-                irPaginaPrincipal(),
-                irCarritoCompras()
+                AgregarProducto.enCarritoCompras(),
+                irCarritoCompras(),
+                EliminarProducto.enCarritoCompras()
         );
     }
 
@@ -29,6 +31,17 @@ public class RemoverProductoDefinition {
         actor.should(seeThat(
                         ValidarProducto.presente(false,LBL_NOMBRE_PRODUCTO)
         ));
+    }
+
+    @Y("el {actor} elimine un producto de {string} en el carrito de compras")
+    public void eliminarProductoUnico(Actor actor,String numeroProductos) {
+        actor.attemptsTo(
+                AnadirVariosProductos.enCarritoCompras(numeroProductos),
+                irCarritoCompras(),
+                EliminarProducto.enCarritoCompras(),
+                irPaginaPrincipal(),
+                irCarritoCompras()
+        );
     }
 
     @Entonces("el {actor} podrá observar que se modifica el precio total de la compra")
