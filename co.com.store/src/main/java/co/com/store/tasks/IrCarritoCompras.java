@@ -15,8 +15,8 @@ public class IrCarritoCompras implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
-                Click.on(LBL_CARRITO_COMPRAS),
-                WaitUntil.the(LBL_PRECIO_TOTAL,isVisible()).forNoMoreThan(Duration.ofSeconds(5))
+                Click.on(LBL_CARRITO_COMPRAS)
+                //WaitUntil.the(LBL_PRECIO_TOTAL,isVisible()).forNoMoreThan(Duration.ofSeconds(5))
         );
     }
 
