@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static co.com.store.enums.Diccionario.MENSAJE_CONTACTENOS;
 import static co.com.store.userinterfaces.SolicitudContactoInterface.BTN_ENVIAR_MENSAJE;
 import static co.com.store.userinterfaces.SolicitudContactoInterface.LNK_CONTACTANOS;

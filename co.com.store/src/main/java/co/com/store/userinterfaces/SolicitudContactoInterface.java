@@ -5,6 +5,8 @@ import static org.openqa.selenium.By.id;
 import static org.openqa.selenium.By.cssSelector;
 public class SolicitudContactoInterface {
 
+    SolicitudContactoInterface(){}
+
     public static final Target LNK_CONTACTANOS = Target
             .the("Link contactanos")
             .located(cssSelector("ul :nth-child(2) .nav-link"));

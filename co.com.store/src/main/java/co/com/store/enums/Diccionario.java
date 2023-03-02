@@ -9,6 +9,7 @@ public enum Diccionario {
 
     URL_BASE  ("https://www.demoblaze.com/"),
     ACTOR_NAME ("Fabricio"),
+    VARIBLE_NOMBRE_PRODUCTO("Nombre producto"),
     RUTA_DRIVERS ("src/test/resources/drivers"),
 
 
@@ -23,7 +24,11 @@ public enum Diccionario {
 
     VALIDACION_DILIGENCIAR_CAMPOS ("error durante el proceso de diligenciamiento de campos"),
 
-    MENSAJE_COMPRA_FALLIDO("please add products to shopping cart");
+    MENSAJE_COMPRA_FALLIDO("please add products to shopping cart"),
+
+    PRECIO_BORRAR("Precio a borrar"),
+
+    PRECIO_TOTAL("Precio total antes");
 
 
     private final String valor;
