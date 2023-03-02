@@ -8,7 +8,7 @@ import static org.openqa.selenium.By.id;
 public class LoginInterfaces {
 
     public static final Target LNK_LOGIN = Target.the("ingresa al login")
-            .located(id("login2"));
+            .located(cssSelector("#login2"));
 
     public static final Target TXT_USER = Target.the("ingresa nombre de usuario")
             .located(id("loginusername"));
