@@ -9,7 +9,7 @@ import net.serenitybdd.screenplay.actions.Click;
 
 
 import static co.com.store.enums.Diccionario.VALIDACION_DILIGENCIAR_CAMPOS;
-import static co.com.store.interactions.LlenarCampos.llernarCamposCompra;
+import static co.com.store.interactions.LlenarCampos.llenarCampos;
 import static co.com.store.userinterfaces.ProcesoCompraInterface.*;
 
 
@@ -64,12 +64,12 @@ public class DiligenciarFormularioCompra implements Task {
 
         try {
             actor.attemptsTo(
-                    llernarCamposCompra(TXT_NOMBRE, nombre),
-                    llernarCamposCompra(TXT_PAIS, pais),
-                    llernarCamposCompra(TXT_CIUDAD, ciudad),
-                    llernarCamposCompra(TXT_TARJETA_CREDITO, targetaCredito),
-                    llernarCamposCompra(TXT_MES, mes),
-                    llernarCamposCompra(TXT_YEAR, year),
+                    llenarCampos(TXT_NOMBRE, nombre),
+                    llenarCampos(TXT_PAIS, pais),
+                    llenarCampos(TXT_CIUDAD, ciudad),
+                    llenarCampos(TXT_TARJETA_CREDITO, targetaCredito),
+                    llenarCampos(TXT_MES, mes),
+                    llenarCampos(TXT_YEAR, year),
                     Click.on(BTN_COMPRA)
             );
         } catch (Exception exception) {

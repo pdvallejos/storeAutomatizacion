@@ -44,6 +44,7 @@ public class Utilidades {
         listaCliente.add(year);
         String vacio = "";
         listaCliente.add(vacio);
+        listaCliente.add(nombre + "*112");
         return listaCliente;
     }
 
@@ -91,9 +92,6 @@ public class Utilidades {
         return new WebDriverWait(SerenityWebdriverManager.inThisTestThread().getCurrentDriver(), Duration.ofSeconds(tiempo));
     }
 
-
-}
-
     /**
      * Funcion que se encarga de obtener el texto de la alerta de validacion
      */
@@ -101,3 +99,4 @@ public class Utilidades {
     public static String obtenerTextoAlerta(){
         return esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
     }
+}
