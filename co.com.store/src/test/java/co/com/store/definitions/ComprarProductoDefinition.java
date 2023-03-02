@@ -63,7 +63,7 @@ public class ComprarProductoDefinition {
     @Entonces("el {actor} visualiza una alerta de campo requerido")
     public void seVisualizaUnaAlertaDeCampoRequerido(Actor actor) {
         actor.should(
-                seeThat(validarTextos(Serenity.sessionVariableCalled(MENSAJE_VALIDACION_COMPRA), MENSAJE_NOMBRE_COMPRA_FALLIDA.getValor()))
+                seeThat(validarTextos(obtenerTextoAlerta(), MENSAJE_COMPRA_CAMPOS_INCORRECTOS.getValor()))
         );
 
 
@@ -79,9 +79,17 @@ public class ComprarProductoDefinition {
 
     @Cuando("el {actor} realiza el proceso de compra sin productos en el carrito")
     public void realizaElProcesoDeCompraSinProductosEnElCarrito(Actor actor) {
+        actor.attemptsTo(
+                irCarritoCompras(),
+                realizarCompra()
+        );
     }
 
-    @Entonces("la compra no se realiza correctamente")
-    public void laCompraNoSeRealizaCorrectamente() {
+    @Entonces("el {actor} visualiza un mensaje de error")
+    public void laCompraNoSeRealizaCorrectamente(Actor actor) {
+        actor.should(
+                seeThat(validarTextos(MENSAJE_VALIDACION_COMPRA.getValor(), MENSAJE_COMPRA_FALLIDO.getValor()))
+        );
+
     }
 }

@@ -19,8 +19,12 @@ public enum Diccionario {
     MENSAJE_CONTACTENOS_FALLIDO("Please complete all the information"),
 
     MENSAJE_VALIDACION_COMPRA("respuesta de la alerta"),
-    MENSAJE_NOMBRE_COMPRA_FALLIDA("Please fill out Name and Creditcard."),
+    MENSAJE_COMPRA_CAMPOS_INCORRECTOS("Please fill out Name and Creditcard."),
 
-    VALIDACION_DILIGENCIAR_CAMPOS ("error durante el proceso de diligenciamiento de campos");
+    VALIDACION_DILIGENCIAR_CAMPOS ("error durante el proceso de diligenciamiento de campos"),
+
+    MENSAJE_COMPRA_FALLIDO("please add products to shopping cart");
+
+
     private final String valor;
 }

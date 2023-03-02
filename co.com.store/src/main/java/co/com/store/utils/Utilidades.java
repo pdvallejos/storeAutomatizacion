@@ -76,9 +76,9 @@ public class Utilidades {
     /**
      * Funcion que se encarga de obtener el texto de la alerta de validacion
      */
-    public static void obtenerTextoAlerta() {
-        String mensajeAlerta = esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
-        Serenity.setSessionVariable(MENSAJE_VALIDACION_COMPRA).to(mensajeAlerta);
+
+    public static String obtenerTextoAlerta(){
+        return esperar(10).until(ExpectedConditions.alertIsPresent()).getText();
     }
 
 }

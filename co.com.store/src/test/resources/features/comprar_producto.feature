@@ -8,7 +8,7 @@ Característica: Realizar proceso de compra de productos
   Antecedentes:
     Dado que el usuario se encuentra en la tienda
 
-  @section02
+
   Escenario: Realizar compra exitosa
     Cuando el usuario ingresa productos al carrito de compras
     Y el usuario realiza el proceso de compra
@@ -26,4 +26,4 @@ Característica: Realizar proceso de compra de productos
 
   Escenario: 004- compra sin productos en el carrito
     Cuando el usuario realiza el proceso de compra sin productos en el carrito
-    Entonces la compra no se realiza correctamente
+    Entonces el usuario visualiza un mensaje de error

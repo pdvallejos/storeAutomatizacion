@@ -6,12 +6,12 @@ import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.targets.Target;
 
-public class LlernarCamposCompra implements Interaction {
+public class LlenarCampos implements Interaction {
 
     private final Target target;
     private final String dato;
 
-    public LlernarCamposCompra(Target target, String dato) {
+    public LlenarCampos(Target target, String dato) {
         this.target = target;
         this.dato = dato;
     }
@@ -22,7 +22,7 @@ public class LlernarCamposCompra implements Interaction {
                 Enter.theValue(dato).into(target).performAs(actor);
     }
 
-    public static LlernarCamposCompra llernarCamposCompra(Target target, String dato){
-        return new LlernarCamposCompra(target,dato);
+    public static LlenarCampos llernarCamposCompra(Target target, String dato){
+        return new LlenarCampos(target,dato);
     }
 }

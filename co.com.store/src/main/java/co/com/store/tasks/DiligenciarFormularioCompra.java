@@ -9,7 +9,7 @@ import net.serenitybdd.screenplay.actions.Click;
 
 
 import static co.com.store.enums.Diccionario.VALIDACION_DILIGENCIAR_CAMPOS;
-import static co.com.store.interactions.LlernarCamposCompra.llernarCamposCompra;
+import static co.com.store.interactions.LlenarCampos.llernarCamposCompra;
 import static co.com.store.userinterfaces.ProcesoCompraInterface.*;
 
 
