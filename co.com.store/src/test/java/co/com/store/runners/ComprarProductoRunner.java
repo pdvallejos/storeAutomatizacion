@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         features = {"src/test/resources/features/comprar_producto.feature"},
         glue = {"co.com.store.definitions"}
+
 )
 public class ComprarProductoRunner {
 }
