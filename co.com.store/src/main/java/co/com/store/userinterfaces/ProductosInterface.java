@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 
 public class ProductosInterface {
 
+    ProductosInterface(){}
+
     public static final Target LBL_NOMBRE_PRODUCTO=Target
             .the("Titulo de cada producto que redirige a compra")
             .located(By.cssSelector("a[class='hrefch']"));
