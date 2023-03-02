@@ -2,7 +2,8 @@ package co.com.store.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
+@Getter
+@AllArgsConstructor
 public enum Diccionario {
 
     URL_BASE  ("https://www.demoblaze.com/"),
@@ -24,11 +25,4 @@ public enum Diccionario {
 
     private final String valor;
 
-    Diccionario(String valor) {
-        this.valor = valor;
-    }
-
-    public String getValor() {
-        return valor;
-    }
 }

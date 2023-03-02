@@ -13,11 +13,18 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 public class IrCarritoCompras implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
+        if(LBL_PRECIO_TOTAL.isVisibleFor(actor)){
+            actor.attemptsTo(
+                    Click.on(LBL_CARRITO_COMPRAS),
+                    WaitUntil.the(LBL_PRECIO_TOTAL,isVisible()).forNoMoreThan(Duration.ofSeconds(5))
+            );
+        }
+        else{
+            actor.attemptsTo(
+                    Click.on(LBL_CARRITO_COMPRAS)
+            );
+        }
 
-        actor.attemptsTo(
-                Click.on(LBL_CARRITO_COMPRAS)
-//                WaitUntil.the(LBL_PRECIO_TOTAL,isVisible()).forNoMoreThan(Duration.ofSeconds(5))
-        );
     }
 
     public static IrCarritoCompras irCarritoCompras(){
