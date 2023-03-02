@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 
 public class CarroComprasInterface {
 
+    CarroComprasInterface(){}
+
     public static final Target LBL_CARRITO_COMPRAS=Target
             .the("Opción para ir al carrito de compras")
             .located(By.id("cartur"));

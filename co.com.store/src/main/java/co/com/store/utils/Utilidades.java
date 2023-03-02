@@ -1,19 +1,20 @@
 package co.com.store.utils;
 
 import com.github.javafaker.Faker;
-import io.cucumber.java.sl.In;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.SerenityWebdriverManager;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import static co.com.store.userinterfaces.CarroComprasInterface.LBL_NOMBRE_PRODUCTO;
+import static co.com.store.enums.Diccionario.PRECIO_BORRAR;
+import static co.com.store.enums.Diccionario.PRECIO_TOTAL;
 
 public class Utilidades {
+
+    private Utilidades(){}
 
     public static ArrayList<String> generarClientesAleatorios(){
         ArrayList<String> listaCliente = new ArrayList<>();
@@ -40,11 +41,18 @@ public class Utilidades {
     }
 
     public static String sumarPrecios(Target target,Actor actor){
-        Integer precioTotal=0;
+        int precioTotal=0;
         for(int x=0;x<target.resolveAllFor(actor).size();x++){
             precioTotal= Integer.parseInt(target.resolveAllFor(actor).get(x).getText())+precioTotal;
         }
         return Integer.toString(precioTotal);
+    }
+
+    public static String restarPrecios(Actor actor){
+        int precioAntes= Integer.parseInt(actor.recall(PRECIO_TOTAL.getValor()));
+        int precioBorrar=Integer.parseInt(actor.recall(PRECIO_BORRAR.getValor()));
+        return Integer.toString(precioAntes-precioBorrar);
+
     }
 
     public static WebDriverWait esperar(int tiempo){

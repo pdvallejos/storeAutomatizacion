@@ -5,13 +5,17 @@
     Necesito remover un producto del carrito de compras
     Para corregir un error en el proceso de elección de productos
 
-    Escenario: Remover producto de forma exitosa
+
+    Antecedentes:
       Dado que el usuario se encuentra en la tienda
-      Cuando el usuario elimine un producto que ha sido agregado al carrito de compras
+
+    Escenario: Remover producto de forma exitosa
+      Cuando el usuario agregue un producto al carrito de compras
+      Y el usuario elimine un producto
       Entonces el usuario podrá observar que se eliminó correctamente el producto del carrito de compras
 
 
-    Escenario: Remover un producto repetido del carrito de compras
-      Dado que el usuario se encuentra en la tienda
-      Cuando remueva un producto repetido del carrito de compras
-      Entonces podrá observar que se removio correctamente del carrito de compras
+    Escenario: Verificar que se modifique el valor total de la compra cuando se elimina un producto
+      Cuando el usuario agregue "3" productos al carrito de compras
+      Y el usuario elimine un producto
+      Entonces el usuario podrá observar que se modifica el precio total de la compra

@@ -1,13 +1,11 @@
 package co.com.store.definitions;
 
-import co.com.store.questions.ValidarProducto;
 import co.com.store.tasks.AgregarProducto;
 import co.com.store.tasks.AnadirVariosProductos;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
-
 import static co.com.store.enums.Diccionario.VARIBLE_NOMBRE_PRODUCTO;
 import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
@@ -37,17 +35,12 @@ public class AgregarProductoStepDefinition {
         actor.attemptsTo(
                 AnadirVariosProductos.enCarritoCompras(numeroProductos),
                 irCarritoCompras());
-
     }
     @Entonces("el {actor} podrá observar que se agregaron {string} correctamente al carrito de compras")
     public void observarProductosAgregados(Actor actor,String numeroProductos) {
         actor.should(seeThat(
                 validarTextos(obtenerTamanoTargetRepetido(LBL_NOMBRE_PRODUCTO,actor),numeroProductos)
         ));
-        //actor.should(seeThat(
-          //      validarTextos(sumarPrecios(LBL_PRECIO_PRODUCTO,actor),obtenerTextoElemento(LBL_PRECIO_TOTAL,actor))
-        //));
-
     }
 
 }
