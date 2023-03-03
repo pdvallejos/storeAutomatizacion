@@ -1,9 +1,7 @@
 package co.com.store.utils;
 
 import co.com.store.tasks.DiligenciarFormularioCompra;
-import co.com.store.tasks.DiligenciarFormularioCompra;
 import com.github.javafaker.Faker;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.SerenityWebdriverManager;
@@ -13,22 +11,34 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import static co.com.store.tasks.DiligenciarFormularioCompra.diligenciarFormularioCompra;
+import static co.com.store.enums.Diccionario.ABRIL;
+import static co.com.store.enums.Diccionario.AGOSTO;
+import static co.com.store.enums.Diccionario.CARACTERES_CONTRASEÑA;
+import static co.com.store.enums.Diccionario.DOMINIO_EMAIL;
+import static co.com.store.enums.Diccionario.ENERO;
+import static co.com.store.enums.Diccionario.EXTENSION_NOMBRE;
+import static co.com.store.enums.Diccionario.FEBRERO;
+import static co.com.store.enums.Diccionario.JULIO;
+import static co.com.store.enums.Diccionario.JUNIO;
+import static co.com.store.enums.Diccionario.LENGUAJE_FAKER;
+import static co.com.store.enums.Diccionario.MARZO;
+import static co.com.store.enums.Diccionario.MAYO;
 import static co.com.store.enums.Diccionario.PRECIO_BORRAR;
 import static co.com.store.enums.Diccionario.PRECIO_TOTAL;
+import static co.com.store.tasks.DiligenciarFormularioCompra.diligenciarFormularioCompra;
 
 public class Utilidades {
 
     public static ArrayList<String> generarClientesAleatorios(){
         ArrayList<String> listaCliente = new ArrayList<>();
-        Faker usFaker = new Faker(new Locale("en-US"));
+        Faker usFaker = new Faker(new Locale(LENGUAJE_FAKER.getValor()));
         String nombre = usFaker.name().firstName();
         listaCliente.add(nombre);
         String apellido = usFaker.name().lastName();
         listaCliente.add(apellido);
-        String correo = nombre + apellido + "@gmail.com";
+        String correo = nombre + apellido + DOMINIO_EMAIL.getValor();
         listaCliente.add(correo);
-        String contrasena = usFaker.bothify("#?#?#?#????" + ":::");
+        String contrasena = usFaker.bothify(CARACTERES_CONTRASEÑA.getValor());
         listaCliente.add(contrasena);
         String texto = usFaker.chuckNorris().fact();
         listaCliente.add(texto);
@@ -38,13 +48,13 @@ public class Utilidades {
         listaCliente.add(ciudad);
         String tarjetaCredito = usFaker.finance().creditCard();
         listaCliente.add(tarjetaCredito);
-        String mes = usFaker.options().option("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto");
+        String mes = usFaker.options().option(ENERO.getValor(), FEBRERO.getValor(),MARZO.getValor(), ABRIL.getValor(), MAYO.getValor(), JUNIO.getValor(), JULIO.getValor(), AGOSTO.getValor());
         listaCliente.add(mes);
         String year = String.valueOf(usFaker.number().numberBetween(2000, 2023));
         listaCliente.add(year);
         String vacio = "";
         listaCliente.add(vacio);
-        listaCliente.add(nombre + "*112");
+        listaCliente.add(nombre + EXTENSION_NOMBRE.getValor());
         return listaCliente;
     }
 

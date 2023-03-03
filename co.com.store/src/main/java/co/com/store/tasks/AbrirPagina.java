@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Open;
 
 public class AbrirPagina implements Task {
 
-    private String url;
+    private final String url;
     public AbrirPagina(String url) {
         this.url = url;
     }

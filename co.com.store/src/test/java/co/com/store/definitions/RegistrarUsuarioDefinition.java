@@ -20,7 +20,7 @@ public class RegistrarUsuarioDefinition {
     public ArrayList<String> datosUsuario = Utilidades.generarClientesAleatorios();
 
     @Cuando("el {actor} suministre las credenciales de registro correctamente")
-    public void elUsuarioSuministreLasCredencialesDeRegistroCorrectamente(Actor actor) throws InterruptedException {
+    public void elUsuarioSuministreLasCredencialesDeRegistroCorrectamente(Actor actor) {
         actor.attemptsTo(
                 irRegistro(),
                 registrarUsuario().conNombre(datosUsuario.get(11)).conContrasena(datosUsuario.get(3))

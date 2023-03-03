@@ -22,7 +22,6 @@ public class VerificarUsuario implements Task {
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
-        System.out.println(usuarioWeb + " lallal "+ usuario);
         actor.attemptsTo(
                 Ensure.that(usuarioWeb.getUsuario()).isEqualTo(SALUDO.getValor() + usuario));
 

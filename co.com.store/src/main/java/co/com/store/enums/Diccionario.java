@@ -24,7 +24,22 @@ public enum Diccionario {
     MENSAJE_COMPRA_FALLIDO("please add products to shopping cart"),
     PRECIO_BORRAR("Precio a borrar"),
     COMPRA_CON_PRODUCTOS("Con productos"),
-    PRECIO_TOTAL("Precio total antes");
+    PRECIO_TOTAL("Precio total antes"),
+    LENGUAJE_FAKER("en-US"),
+    DOMINIO_EMAIL("@gmail.com"),
+    CARACTERES_CONTRASEÑA("#?#?#?#????" + ":::"),
+    ENERO("Enero"),
+    FEBRERO("Febrero"),
+    MARZO("Marzo"),
+    ABRIL("Abril"),
+    MAYO("Mayo"),
+    JUNIO("Junio"),
+    JULIO("Julio"),
+    AGOSTO("Agosto"),
+    EXTENSION_NOMBRE("*112"),
+    ALERTA_CONTRASEÑA_INVALIDA("Wrong password."),
+    ALERTA_COMPLETAR_CAMPOS("Please fill out Username and Password."),
+    ALERTA_USUARIO_INEXISTENTE("User does not exist.");
 
     private final String valor;
     

@@ -6,7 +6,14 @@ import co.com.store.tasks.VerificarUsuario;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.Actor;
-import static co.com.store.enums.Diccionario.*;
+
+import static co.com.store.enums.Diccionario.ACTOR_NAME;
+import static co.com.store.enums.Diccionario.ALERTA_COMPLETAR_CAMPOS;
+import static co.com.store.enums.Diccionario.ALERTA_CONTRASEÑA_INVALIDA;
+import static co.com.store.enums.Diccionario.ALERTA_USUARIO_INEXISTENTE;
+import static co.com.store.enums.Diccionario.PASSWORD;
+import static co.com.store.enums.Diccionario.PASSWORD_INCORRECTO;
+import static co.com.store.enums.Diccionario.USUARIO;
 import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IniciarSesion.iniciarSesion;
 import static co.com.store.utils.Utilidades.obtenerTextoAlerta;
@@ -41,7 +48,7 @@ public class InicioSesionDefinition {
     @Entonces("el {actor} podrá observar la alerta que el usuario no existe")
     public void UsuarioPodraObservarAlertaUsuarioNoExiste(Actor actor) {
         actor.should(
-                seeThat(validarTextos(obtenerTextoAlerta(), "User does not exist."))
+                seeThat(validarTextos(obtenerTextoAlerta(), ALERTA_USUARIO_INEXISTENTE.getValor()))
         );
     }
 
@@ -55,7 +62,7 @@ public class InicioSesionDefinition {
     @Entonces("el {actor} podrá observar la alerta de que debe completar todos los campos")
     public void UsuarioPodráObservarAlertaDebeCompletarTodosLosCampos(Actor actor) {
         actor.should(
-                seeThat(validarTextos(obtenerTextoAlerta(), "Please fill out Username and Password."))
+                seeThat(validarTextos(obtenerTextoAlerta(), ALERTA_COMPLETAR_CAMPOS.getValor()))
         );
     }
 
@@ -70,7 +77,7 @@ public class InicioSesionDefinition {
     @Entonces("el {actor} podrá observar la alerta de que la contraseña es invalida")
     public void UsuarioPodráObservarAlertaContrasenaInvalida(Actor actor) {
         actor.should(
-                seeThat(validarTextos(obtenerTextoAlerta(), "Wrong password."))
+                seeThat(validarTextos(obtenerTextoAlerta(), ALERTA_CONTRASEÑA_INVALIDA.getValor()))
         );
     }
 }
