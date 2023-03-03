@@ -29,7 +29,7 @@ public class ComprarProductoDefinition {
     public void ingresaProductosAlCarritoDeCompras(Actor actor) {
         actor.attemptsTo(
                 AgregarProducto.enCarritoCompras(),
-                irCarritoCompras()
+                irCarritoCompras(COMPRA_CON_PRODUCTOS.getValor())
         );
 
     }
@@ -80,7 +80,7 @@ public class ComprarProductoDefinition {
     @Cuando("el {actor} realiza el proceso de compra sin productos en el carrito")
     public void realizaElProcesoDeCompraSinProductosEnElCarrito(Actor actor) {
         actor.attemptsTo(
-                irCarritoCompras(),
+                irCarritoCompras(""),
                 realizarCompra()
         );
     }

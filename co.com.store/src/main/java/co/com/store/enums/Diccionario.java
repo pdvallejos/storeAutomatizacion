@@ -21,8 +21,10 @@ public enum Diccionario {
     VALIDACION_DILIGENCIAR_CAMPOS ("error durante el proceso de diligenciamiento de campos"),
     MENSAJE_COMPRA_FALLIDO("please add products to shopping cart"),
     PRECIO_BORRAR("Precio a borrar"),
+
+    COMPRA_CON_PRODUCTOS("Con productos"),
     PRECIO_TOTAL("Precio total antes");
 
     private final String valor;
-
+    
 }
