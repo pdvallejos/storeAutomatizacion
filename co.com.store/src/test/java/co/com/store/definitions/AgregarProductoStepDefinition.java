@@ -6,6 +6,8 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
+
+import static co.com.store.enums.Diccionario.COMPRA_CON_PRODUCTOS;
 import static co.com.store.enums.Diccionario.VARIBLE_NOMBRE_PRODUCTO;
 import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
@@ -19,7 +21,7 @@ public class AgregarProductoStepDefinition {
     public void agregarProductoCarritoCompras(Actor actor) {
         actor.attemptsTo(
                 AgregarProducto.enCarritoCompras(),
-                irCarritoCompras()
+                irCarritoCompras(COMPRA_CON_PRODUCTOS.getValor())
         );
 
     }
@@ -34,7 +36,7 @@ public class AgregarProductoStepDefinition {
     public void agregarVariosProductosCarritoCompras(Actor actor,String numeroProductos) {
         actor.attemptsTo(
                 AnadirVariosProductos.enCarritoCompras(numeroProductos),
-                irCarritoCompras());
+                irCarritoCompras(COMPRA_CON_PRODUCTOS.getValor()));
     }
     @Entonces("el {actor} podrá observar que se agregaron {string} correctamente al carrito de compras")
     public void observarProductosAgregados(Actor actor,String numeroProductos) {

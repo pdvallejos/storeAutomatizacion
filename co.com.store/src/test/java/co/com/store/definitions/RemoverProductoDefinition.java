@@ -8,6 +8,7 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.Actor;
+import static co.com.store.enums.Diccionario.COMPRA_CON_PRODUCTOS;
 import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
 import static co.com.store.tasks.IrPaginaPrincipal.irPaginaPrincipal;
@@ -21,7 +22,7 @@ public class RemoverProductoDefinition {
     public void eliminarProducto(Actor actor) {
         actor.attemptsTo(
                 AgregarProducto.enCarritoCompras(),
-                irCarritoCompras(),
+                irCarritoCompras(COMPRA_CON_PRODUCTOS.getValor()),
                 EliminarProducto.enCarritoCompras()
         );
     }
@@ -37,10 +38,10 @@ public class RemoverProductoDefinition {
     public void eliminarProductoUnico(Actor actor,String numeroProductos) {
         actor.attemptsTo(
                 AnadirVariosProductos.enCarritoCompras(numeroProductos),
-                irCarritoCompras(),
+                irCarritoCompras(COMPRA_CON_PRODUCTOS.getValor()),
                 EliminarProducto.enCarritoCompras(),
                 irPaginaPrincipal(),
-                irCarritoCompras()
+                irCarritoCompras(COMPRA_CON_PRODUCTOS.getValor())
         );
     }
 
