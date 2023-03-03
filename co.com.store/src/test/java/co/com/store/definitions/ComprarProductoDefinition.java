@@ -6,12 +6,14 @@ import co.com.store.utils.Utilidades;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
-
 import java.util.ArrayList;
 
-import static co.com.store.enums.Diccionario.*;
+import static co.com.store.enums.Diccionario.COMPRA_CON_PRODUCTOS;
+import static co.com.store.enums.Diccionario.MENSAJE_COMPRA_CAMPOS_INCORRECTOS;
+import static co.com.store.enums.Diccionario.MENSAJE_COMPRA_FALLIDO;
+import static co.com.store.enums.Diccionario.MENSAJE_VALIDACION_COMPRA;
+import static co.com.store.enums.Diccionario.VALIDACION_COMPRA_EXITOSA;
 import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
 import static co.com.store.tasks.RealizarCompra.realizarCompra;

@@ -4,10 +4,7 @@ import co.com.store.utils.Utilidades;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.actions.AlertText;
-
 import java.util.ArrayList;
-
 import static co.com.store.enums.Diccionario.MENSAJE_CONTACTENOS_EXITOSO;
 import static co.com.store.enums.Diccionario.MENSAJE_CONTACTENOS_FALLIDO;
 import static co.com.store.questions.ValidarTexto.validarTextos;

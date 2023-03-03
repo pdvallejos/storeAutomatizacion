@@ -8,11 +8,13 @@ public enum Diccionario {
 
     URL_BASE  ("https://www.demoblaze.com/"),
     ACTOR_NAME ("Fabricio"),
-    RUTA_DRIVERS ("src/test/resources/drivers"),
+    USUARIO ("lalo123"),
+    PASSWORD("12345678"),
     MENSAJE_REGISTRO_EXITOSO("Sign up successful."),
     CAMPO_REGISTRO_FALTANTE ("Please fill out Username and Password."),
+    PASSWORD_INCORRECTO("sarasa"),
+    SALUDO("Welcome "),
     VARIBLE_NOMBRE_PRODUCTO("Nombre producto"),
-
     VALIDACION_COMPRA_EXITOSA("Thank you for your purchase!"),
     MENSAJE_CONTACTENOS_EXITOSO("Thanks for the message!!"),
     MENSAJE_CONTACTENOS_FALLIDO("Please complete all the information"),
@@ -21,9 +23,23 @@ public enum Diccionario {
     VALIDACION_DILIGENCIAR_CAMPOS ("error durante el proceso de diligenciamiento de campos"),
     MENSAJE_COMPRA_FALLIDO("please add products to shopping cart"),
     PRECIO_BORRAR("Precio a borrar"),
-
     COMPRA_CON_PRODUCTOS("Con productos"),
-    PRECIO_TOTAL("Precio total antes");
+    PRECIO_TOTAL("Precio total antes"),
+    LENGUAJE_FAKER("en-US"),
+    DOMINIO_EMAIL("@gmail.com"),
+    CARACTERES_CONTRASEÑA("#?#?#?#????" + ":::"),
+    ENERO("Enero"),
+    FEBRERO("Febrero"),
+    MARZO("Marzo"),
+    ABRIL("Abril"),
+    MAYO("Mayo"),
+    JUNIO("Junio"),
+    JULIO("Julio"),
+    AGOSTO("Agosto"),
+    EXTENSION_NOMBRE("*112"),
+    ALERTA_CONTRASEÑA_INVALIDA("Wrong password."),
+    ALERTA_COMPLETAR_CAMPOS("Please fill out Username and Password."),
+    ALERTA_USUARIO_INEXISTENTE("User does not exist.");
 
     private final String valor;
     

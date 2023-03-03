@@ -11,7 +11,8 @@ import static co.com.store.enums.Diccionario.COMPRA_CON_PRODUCTOS;
 import static co.com.store.enums.Diccionario.VARIBLE_NOMBRE_PRODUCTO;
 import static co.com.store.questions.ValidarTexto.validarTextos;
 import static co.com.store.tasks.IrCarritoCompras.irCarritoCompras;
-import static co.com.store.userinterfaces.CarroComprasInterface.*;
+
+import static co.com.store.userinterfaces.CarroComprasInterface.LBL_NOMBRE_PRODUCTO;
 import static co.com.store.utils.Utilidades.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
