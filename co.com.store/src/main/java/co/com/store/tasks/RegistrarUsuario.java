@@ -29,8 +29,8 @@ public class RegistrarUsuario implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                LlenarCampos.LlenarCampos(TXT_NOMBRE, nombre + "*123"),
-                LlenarCampos.LlenarCampos(TXT_CONTRASENA, contrasena + "*123"),
+                LlenarCampos.llenarCampos(TXT_NOMBRE, nombre),
+                LlenarCampos.llenarCampos(TXT_CONTRASENA, contrasena),
                 Click.on(BTN_REGISTRARSE)
         );
     }

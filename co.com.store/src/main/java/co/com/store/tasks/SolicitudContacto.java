@@ -3,15 +3,13 @@ package co.com.store.tasks;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.DoubleClick;
-import net.serenitybdd.screenplay.actions.DoubleClickOnElement;
 import net.serenitybdd.screenplay.actions.Enter;
 
-import static co.com.store.userinterfaces.SolicitudContacto.BTN_ENVIAR_MENSAJE;
-import static co.com.store.userinterfaces.SolicitudContacto.LNK_CONTACTANOS;
-import static co.com.store.userinterfaces.SolicitudContacto.TXT_CORREO;
-import static co.com.store.userinterfaces.SolicitudContacto.TXT_MENSAJE;
-import static co.com.store.userinterfaces.SolicitudContacto.TXT_NOMBRE;
+import static co.com.store.userinterfaces.SolicitudContactoInterface.BTN_ENVIAR_MENSAJE;
+import static co.com.store.userinterfaces.SolicitudContactoInterface.LNK_CONTACTANOS;
+import static co.com.store.userinterfaces.SolicitudContactoInterface.TXT_CORREO;
+import static co.com.store.userinterfaces.SolicitudContactoInterface.TXT_MENSAJE;
+import static co.com.store.userinterfaces.SolicitudContactoInterface.TXT_NOMBRE;
 
 public class SolicitudContacto implements Task {
 
@@ -39,7 +37,6 @@ public class SolicitudContacto implements Task {
                 Enter.theValue(nombre).into(TXT_NOMBRE),
                 Enter.theValue(mensaje).into(TXT_MENSAJE),
                 Click.on(BTN_ENVIAR_MENSAJE)
-//                unMomento(3)
         );
     }
 

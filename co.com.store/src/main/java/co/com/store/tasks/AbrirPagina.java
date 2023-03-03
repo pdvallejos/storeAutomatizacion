@@ -12,9 +12,9 @@ public class AbrirPagina implements Task {
         this.url = url;
     }
 
-public static AbrirPagina enUrl(String url){
-    return Tasks.instrumented(AbrirPagina.class,url);
-}
+    public static AbrirPagina enUrl(String url){
+        return Tasks.instrumented(AbrirPagina.class,url);
+    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
